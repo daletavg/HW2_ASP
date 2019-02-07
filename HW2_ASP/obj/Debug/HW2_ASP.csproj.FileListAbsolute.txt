@@ -16,7 +16,10 @@ C:\Users\Dubrov_v\Desktop\HW2_ASP\HW2_ASP\bin\System.Web.Webpages.Deployment.xml
 C:\Users\Dubrov_v\Desktop\HW2_ASP\HW2_ASP\bin\System.Web.Webpages.Razor.xml
 C:\Users\Dubrov_v\Desktop\HW2_ASP\HW2_ASP\bin\System.Web.Helpers.xml
 C:\Users\Dubrov_v\Desktop\HW2_ASP\HW2_ASP\bin\System.Web.Mvc.xml
-C:\Users\Dubrov_v\Desktop\HW2_ASP\HW2_ASP\obj\Debug\HW2_ASP.csprojResolveAssemblyReference.cache
 C:\Users\Dubrov_v\Desktop\HW2_ASP\HW2_ASP\obj\Debug\HW2_ASP.csproj.CoreCompileInputs.cache
 C:\Users\Dubrov_v\Desktop\HW2_ASP\HW2_ASP\obj\Debug\HW2_ASP.dll
 C:\Users\Dubrov_v\Desktop\HW2_ASP\HW2_ASP\obj\Debug\HW2_ASP.pdb
+C:\Users\Dubrov_v\Desktop\HW2_ASP\HW2_ASP\bin\EntityFramework.dll
+C:\Users\Dubrov_v\Desktop\HW2_ASP\HW2_ASP\bin\EntityFramework.SqlServer.dll
+C:\Users\Dubrov_v\Desktop\HW2_ASP\HW2_ASP\bin\EntityFramework.xml
+C:\Users\Dubrov_v\Desktop\HW2_ASP\HW2_ASP\bin\EntityFramework.SqlServer.xml
