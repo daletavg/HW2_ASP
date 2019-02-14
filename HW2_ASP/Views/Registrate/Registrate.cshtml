@@ -1,0 +1,62 @@
+﻿@model HW2_ASP.Models.User
+
+@{
+
+    ViewBag.Title = "Registrate";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    if (@ViewBag.Danger_Login == "True")
+    {
+
+        @Html.ValidationMessageFor(model => model.login, "", new { @class = "alert alert-danger" })
+    }
+    <div style="position: absolute; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%)">
+        <table style="border-collapse: separate; border-spacing: 5px;">
+            <tr>
+                <td>
+                    <div class="input-group flex-nowrap">
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Name" } })
+
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="input-group flex-nowrap">
+                        @Html.EditorFor(model => model.surname, new { htmlAttributes = new { @class = "form-control", @placeholder = "Surname" } })
+
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="input-group flex-nowrap">
+                       
+                        @Html.EditorFor(model => model.login, new { htmlAttributes = new { @class = "form-control", @placeholder = "Login" } })
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="input-group flex-nowrap">
+                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Password", @type = "password" } })
+
+                    </div>
+                </td>
+            </tr>
+            <tr>
+            <tr>
+
+                <td>
+                        <button type="submit" name="action" value="Registrate" class="btn btn-secondary">Register</button>
+                        <button type="submit" name="action" value="Back" class="btn btn-secondary">Back</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+}

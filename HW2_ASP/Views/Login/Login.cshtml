@@ -1,38 +1,51 @@
-﻿@model HW2_ASP.Models.LoginModel
+﻿@using System.Web.UI.WebControls
+@model HW2_ASP.Models.LoginModel
 
 @{
     ViewBag.Title = "Login";
 }
 
 
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-<div style="position: absolute; top: 50%;left: 50%;margin-right: -50%;transform: translate(-50%, -50%)">
-    <table style="border-collapse: separate;border-spacing: 5px;">
-        <tr>
-            <td>
-                <div class="input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">@@</span>
+    if (@ViewBag.Danger_Login == "True")
+    {
+        @Html.ValidationMessageFor(model => model.Login, "", new { @class = "alert alert-danger" })
+    }
+    
+    <div style="position: absolute; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%)">
+        <table style="border-collapse: separate; border-spacing: 5px;">
+            <tr>
+                <td>
+                    <div class="input-field indigo-text">
+
+                        @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control indigo-text", @id = "login" } })
+                        <label for="login">First Name</label>
                     </div>
-                    @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control", @placeholder = "Login" } })
-                    
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="input-group flex-nowrap">
-                    <input class="form-control" type="password" placeholder="Password" aria-label="Username" aria-describedby="addon-wrapping">
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="btn-group" role="group" style="float:right" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary">Login</button>
-                    <button type="button" class="btn btn-secondary">Register</button>
-                </div>
-            </td>
-        </tr>
-    </table>
-</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="input-field indigo-text">
+
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control ",@id="password" } })
+                        <label class="grey-text" for="password">First Name</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="float: right" aria-label="Basic example">
+
+
+                        <button type="submit" name="action" value="Register" class="btn indigo lighten-1 btn-medium">Register</button>
+                        <button type="submit" name="action" value="Login" class="btn indigo lighten-1 btn-medium">Login</button>
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+}

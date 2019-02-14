@@ -15,8 +15,18 @@ namespace HW2_ASP
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "Login",
+                defaults: new { controller = "Login", action = "Login" }
+            );
+            routes.MapRoute(
+                name: "Registrate",
+                url: "Registrate",
+                defaults: new { controller = "Registrate", action = "Registrate" }
+            );
+            routes.MapRoute(
+                name: "General",
+                url: "General",
+                defaults: new { controller = "General", action = "General" }
             );
         }
     }
