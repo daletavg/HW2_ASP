@@ -36,18 +36,18 @@ namespace HW2_ASP.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (var db = new MusicalPortal())
+                using (var db = new MusicPortal())
                 {
 
 
-                    if (db.User.AsNoTracking().ToList().Count == 0)
+                    if (db.Users.AsNoTracking().ToList().Count == 0)
                     {
                         ViewBag.Danger_Login = "True";
                         ModelState.AddModelError("Login", "Wrong login!");
                         return View(logon);
                     }
 
-                    var users = db.User.Where(a => a.login == logon.Login);
+                    var users = db.Users.Where(a => a.login == logon.Login);
                     if (users.ToList().Count == 0)
                     {
                         ViewBag.Danger_Login = "True";
@@ -68,7 +68,16 @@ namespace HW2_ASP.Controllers
 
                     Session["Name"] = user.name;
                     Session["Surname"] = user.surname;
-                   // return RedirectToAction("General", "MusicalPortal");
+                    switch (user.Status.id)
+                    {
+                        case 1:
+                            Session["Admin"] = "Admin";
+                            break;
+                        default:
+                            Session["Admin"] = "User";
+                            break;
+                    }
+                    return RedirectToAction("General", "General");
                 }
 
                 return View(logon);

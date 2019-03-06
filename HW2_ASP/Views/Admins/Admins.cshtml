@@ -1,0 +1,92 @@
+﻿@using System.Security.Policy
+@using HW2_ASP.Models
+@model HW2_ASP.Models.NotActiveUsersModel
+@{
+    ViewBag.Title = "Admins";
+}
+
+<nav class="teal darken-4">
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <div class="container">
+
+        <div class="nav-wrapper ">
+            <a href="" class="brand-logo">Musical Portal</a>
+
+        </div>
+    </div>
+</nav>
+<ul id="slide-out" class="sidenav">
+    <li>
+        <div class="user-view">
+            <div class="background purple darken-1">
+                <img src="">
+            </div>
+            <a href="#name"><span class="white-text name">John Doe</span></a>
+        </div>
+    </li>
+    @if (Session["Admin"] == "Admin")
+    {
+        <li><a href="@Url.Action("Admins","Admins")">New users<span class="new badge">4</span></a></li>
+    }
+
+
+</ul>
+@using (Html.BeginForm())
+{
+    <div class="container">
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Login</th>
+                <th>Activate</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+
+            @for (int i = 0; i < @Model.Users.Count; i++)
+            {
+                if (@Model.Users[i].is_activate == true)
+                {
+                    continue;
+                }
+                <tr>
+                    <td>@Model.Users[i].name</td>
+                    <td>@Model.Users[i].surname</td>
+                    <td>@Model.Users[i].login</td>
+                    <td>
+                        <label>
+                            @Html.CheckBoxFor(x => x.Users[i].is_activate)
+                            <span>
+                                fef
+                            </span>
+                        </label>
+                    </td>
+                </tr>
+
+            }
+
+            </tbody>
+        </table>
+        <button type="submit" name="action" value="add" class="btn btn-medium" style="float: right;margin: 1em">Submit</button>
+    </div>
+}
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems, options);
+        });
+
+        // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+        // var collapsibleElem = document.querySelector('.collapsible');
+        // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+
+        // Or with jQuery
+
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+    </script>

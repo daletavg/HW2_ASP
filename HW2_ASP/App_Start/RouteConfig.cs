@@ -28,6 +28,16 @@ namespace HW2_ASP
                 url: "General",
                 defaults: new { controller = "General", action = "General" }
             );
+            routes.MapRoute(
+                name: "Admins",
+                url: "Admins",
+                defaults: new { controller = "Admins", action = "Admins" }
+            );
+            routes.MapRoute(
+                name: "AddMusic",
+                url: "AddMusic",
+                defaults: new { controller = "AddMusic", action = "AddMusic" }
+            );
         }
     }
 }

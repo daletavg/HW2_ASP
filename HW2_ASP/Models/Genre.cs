@@ -12,7 +12,7 @@ namespace HW2_ASP.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Genre()
         {
-            Song = new HashSet<Song>();
+            Songs = new HashSet<Song>();
         }
 
         public int id { get; set; }
@@ -22,6 +22,6 @@ namespace HW2_ASP.Models
         public string genre1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Song> Song { get; set; }
+        public virtual ICollection<Song> Songs { get; set; }
     }
 }

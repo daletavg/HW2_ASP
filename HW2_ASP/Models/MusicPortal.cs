@@ -5,27 +5,27 @@ namespace HW2_ASP.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class MusicalPortal : DbContext
+    public partial class MusicPortal : DbContext
     {
-        public MusicalPortal()
-            : base("name=MusicalPortal")
+        public MusicPortal()
+            : base("name=MusicPortal")
         {
         }
 
-        public virtual DbSet<Genre> Genre { get; set; }
-        public virtual DbSet<Song> Song { get; set; }
+        public virtual DbSet<Genre> Genres { get; set; }
+        public virtual DbSet<Song> Songs { get; set; }
         public virtual DbSet<Status> Status { get; set; }
-        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Genre>()
-                .HasMany(e => e.Song)
+                .HasMany(e => e.Songs)
                 .WithOptional(e => e.Genre)
                 .HasForeignKey(e => e.id_song_genre);
 
             modelBuilder.Entity<Status>()
-                .HasMany(e => e.User)
+                .HasMany(e => e.Users)
                 .WithOptional(e => e.Status)
                 .HasForeignKey(e => e.id_status);
         }

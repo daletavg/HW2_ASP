@@ -25,6 +25,8 @@ namespace HW2_ASP.Models
 
         public int? id_status { get; set; }
 
+        public bool is_activate { get; set; }
+
         public virtual Status Status { get; set; }
     }
 }

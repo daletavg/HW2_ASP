@@ -23,19 +23,19 @@ namespace HW2_ASP.Controllers
         {
             if (action=="Registrate")
             {
-                using (var db = new MusicalPortal())
+                using (var db = new MusicPortal())
                 {
-                    var tmp = db.User.Any(i => i.login == register.login);
+                    var tmp = db.Users.Any(i => i.login == register.login);
                     if (tmp)
                     {
                         ViewBag.Danger_Login = "True";
                         ModelState.AddModelError("login", "This login is exist!");
                         return View(register);
                     }
-
+                    register.is_activate = false;
                     GetHeshMd5 hash = new GetHeshMd5();
                     register.password = hash.GetHesh(register.password);
-                    db.User.Add(register);
+                    db.Users.Add(register);
                     db.SaveChanges();
                     return View(register);
                 }

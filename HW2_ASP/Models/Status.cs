@@ -11,7 +11,7 @@ namespace HW2_ASP.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Status()
         {
-            User = new HashSet<User>();
+            Users = new HashSet<User>();
         }
 
         public int id { get; set; }
@@ -21,6 +21,6 @@ namespace HW2_ASP.Models
         public string status1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> User { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

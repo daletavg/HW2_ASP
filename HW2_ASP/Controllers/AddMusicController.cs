@@ -8,14 +8,14 @@ using HW2_ASP.Models;
 
 namespace HW2_ASP.Controllers
 {
-    public class GeneralController : Controller
+    public class AddMusicController : Controller
     {
-        // GET: General
-        public ActionResult General()
+        // GET: AddMusic
+        public ActionResult AddMusic()
         {
             using (var db = new MusicPortal())
             {
-                List < Genre > genr= new List<Genre>();
+                List<Genre> genr = new List<Genre>();
                 foreach (var dbGenre in db.Genres.ToList())
                 {
                     genr.Add(dbGenre);
@@ -26,8 +26,9 @@ namespace HW2_ASP.Controllers
 
             return View();
         }
+
         [HttpPost]
-        public ActionResult General(IEnumerable<HttpPostedFileBase> fileUpload)
+        public ActionResult AddMusic(IEnumerable<HttpPostedFileBase> fileUpload)
         {
 
             int count = 0;
