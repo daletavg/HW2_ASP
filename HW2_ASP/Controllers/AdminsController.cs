@@ -11,24 +11,25 @@ namespace HW2_ASP.Controllers
     {
         // GET: Admins
         public ActionResult Admins()
-        {        
+        {
+            
+            
+
             return View(new NotActiveUsersModel());
         }
 
-        [HttpPost]
-        public ActionResult Admins(NotActiveUsersModel model)
+        public ActionResult _PartialAdmins(object item)
         {
-            using (var db = new MusicPortal())
-            {
-                var notActiveUser = db.Users.Where(d => d.is_activate == false);
-                foreach (var i in model.Users.Where(k=>k.is_activate==false))
-                {
-                    notActiveUser.First(j => j.login == i.login).is_activate = true;
-                }
 
-                db.SaveChanges();
+            return View(item);
+        }
 
-            }
+        [HttpPost]
+        public ActionResult Admins(NotActiveUsersModel model,bool[] checkedList)
+        {
+            int a;
+            a = 10;
+            
             return View();
         }
     }

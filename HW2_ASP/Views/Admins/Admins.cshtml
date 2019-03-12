@@ -1,9 +1,10 @@
 ﻿@using System.Security.Policy
 @using HW2_ASP.Models
-@model HW2_ASP.Models.NotActiveUsersModel
+@model NotActiveUsersModel
 @{
     ViewBag.Title = "Admins";
 }
+
 
 <nav class="teal darken-4">
     <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -46,24 +47,22 @@
 
             <tbody>
 
-
-            @for (int i = 0; i < @Model.Users.Count; i++)
+            @foreach(var @item in @Model.UserToActives)
             {
-                if (@Model.Users[i].is_activate == true)
-                {
-                    continue;
-                }
+
                 <tr>
-                    <td>@Model.Users[i].name</td>
-                    <td>@Model.Users[i].surname</td>
-                    <td>@Model.Users[i].login</td>
+                    <td>@item.Name</td>
+                    <td>@item.Surname</td>
+                    <td>@item.Login</td>
                     <td>
-                        <label>
-                            @Html.CheckBoxFor(x => x.Users[i].is_activate)
-                            <span>
-                                fef
-                            </span>
-                        </label>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"
+                                       name="IsActivateUser"
+                                       class="form-check-input"
+                                       value="@item.IsActivate" /> <span>Activate</span>
+                            </label>
+                        </div>
                     </td>
                 </tr>
 

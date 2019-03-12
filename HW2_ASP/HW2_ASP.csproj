@@ -130,6 +130,7 @@
     <Compile Include="Models\Song.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserToActive.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
